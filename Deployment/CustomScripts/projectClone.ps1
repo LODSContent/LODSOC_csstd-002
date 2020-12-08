@@ -2,4 +2,4 @@
 d:
 md challenge
 cd challenge
-git clone https://github.com/twallace27603/lods-csstd-02-project .
+git clone https://github.com/LODSContent/LODSOC_csstd-02-project .
