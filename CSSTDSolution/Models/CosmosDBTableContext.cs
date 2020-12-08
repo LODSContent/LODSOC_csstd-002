@@ -1,11 +1,10 @@
 ﻿using CSSTDModels;
-using Microsoft.Azure.CosmosDB.Table;
 using Microsoft.Azure.Storage;
-using CDB = Microsoft.Azure.CosmosDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Azure.Cosmos.Table;
 
 namespace CSSTDSolution.Models
 {
@@ -17,8 +16,8 @@ namespace CSSTDSolution.Models
         public CosmosDBTableContext(string accountName, string key)
         {
             var endpoint = $"https://{accountName}.table.cosmosdb.azure.com";
-            var uri = new StorageUri(new Uri(endpoint));
-            client = new CDB.Table.CloudTableClient(uri, new Microsoft.Azure.Storage.Auth.StorageCredentials(accountName, key));
+            var uri = new Uri(endpoint);
+            client = new CloudTableClient(uri, new Microsoft.Azure.Cosmos.Table.StorageCredentials(accountName, key));
 
         }
 
