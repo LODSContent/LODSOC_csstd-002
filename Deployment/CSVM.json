@@ -25,7 +25,7 @@
     "subnetPrefix": "10.0.0.0/24",
     "vmImagePublisher": "MicrosoftVisualStudio",
     "vmImageOffer": "VisualStudio",
-    "vmImageSku": "VS-2017-Comm-WS2016",
+    "vmImageSku": "vs-2019-comm-latest-ws2019",
     "vmOSDiskName": "vmOSDisk",
     "vmVmSize": "[parameters('VMSize')]",
     "vmVnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('vnetName'))]",
