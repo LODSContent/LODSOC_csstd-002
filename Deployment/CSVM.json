@@ -24,7 +24,7 @@
     "subnetName": "Subnet-1",
     "subnetPrefix": "10.0.0.0/24",
     "vmImagePublisher": "MicrosoftVisualStudio",
-    "vmImageOffer": "VisualStudio",
+    "vmImageOffer": "visualstudio2019latest",
     "vmImageSku": "vs-2019-comm-latest-ws2019",
     "vmOSDiskName": "vmOSDisk",
     "vmVmSize": "[parameters('VMSize')]",
