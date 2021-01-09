@@ -53,7 +53,7 @@ namespace CSSTDEvaluation
             string[] mentions = new string[] {
                 "We just tried %product% and it was amazing #%industry%",
                 "Shout out to %product%! It's amazing",
-                "Kudos to the developers of %product%: great experience!"};
+                "I learned a lot from %product%! Kudos to LODS."};
             var products = ProductData();
             var rnd = new Random();
             foreach (var product in products)
