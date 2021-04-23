@@ -13,13 +13,14 @@
     }
     function storageTest() {
         clearResults();
+        var storageConnection;
         if ((testType & 1) === 1) {
-            storageConnection = "storageAccount=" + $('#storageAccount').val() + "&storageKey=" + encodeURIComponent($('#storageKey').val()) + "&containerName=public&isPrivate=false";
+            storageConnection = "storageAccountConnectionString=" + encodeURIComponent($('#storageAccountConnectionString').val()) + "&containerName=public&isPrivate=false";
             runTest("blobupload", storageConnection, "Public Blob Upload", null, null, processStorageResults, false);
             runTest("blobdownload", storageConnection, "Public Blob Download", null, null, processStorageResults, true);
         }
         if ((testType & 2) === 2) {
-            storageConnection = "storageAccount=" + $('#storageAccount').val() + "&storageKey=" + encodeURIComponent($('#storageKey').val()) + "&containerName=private&isPrivate=true";
+            storageConnection = "storageAccountConnectionString=" + encodeURIComponent($('#storageAccountConnectionString').val()) + "&containerName=private&isPrivate=true";
             runTest("blobupload", storageConnection, "Private Blob Upload", null, null, processStorageResults, false);
             runTest("blobsas", storageConnection, "Private SAS Generation", null, null, processStorageResults, false);
             runTest("blobdownload", storageConnection, "Private Blob Download", null, null, processStorageResults, true);
@@ -97,8 +98,9 @@
 
     }
     function processError(errorInfo, title) {
-        var result = "<tr><td>Error</td><td><h3>" + title + "</h3><p>" + errorInfo + "</p></td></tr>";
-        $('#results').add(result);
+        var text = errorInfo.statusText || errorInfo;
+        var result = "<tr><td>Error</td><td><h3>" + title + "</h3><p>" + text + "</p></td></tr>";
+        $('#results').append(result);
     }
     function runTest(operation, queryString, title, fieldNames, fieldTitles, callBack, showData) {
         var url = "/evaluate/" + operation + "?" + queryString + "&encryptionKey=" + encodeURIComponent(key);
